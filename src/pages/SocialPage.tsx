@@ -1,12 +1,5 @@
 import * as React from "react";
-import {
-  Grid,
-  Typography,
-  Card,
-  CardContent,
-  Stack,
-  TextField,
-} from "@mui/material";
+import { Grid, Typography, Card, CardContent, Stack } from "@mui/material";
 import IframeEmbed from "../components/IframeEmbed";
 
 export default function SocialPage() {
@@ -17,7 +10,11 @@ export default function SocialPage() {
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);
-    return () => document.body.removeChild(script);
+
+    // Cleanup: just remove the script, don't return anything
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
 
   return (
