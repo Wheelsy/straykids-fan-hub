@@ -17,24 +17,61 @@ export default function HomePage() {
         sx={{
           p: 4,
           borderRadius: 3,
-          background:
-            "linear-gradient(135deg, rgba(0,229,255,0.12), rgba(255,61,0,0.12))",
+          backgroundImage:
+            "url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fd6%2F85%2F02%2Fd68502f7f612d3b9737168ff2ea157ac.jpg&f=1&nofb=1&ipt=8584d3d6dd32baeea014805b2d1b602eb7b717530a0e7d8444abe73092923b96)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          position: "relative",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            borderRadius: 3,
+          },
+          "& > *": {
+            position: "relative",
+            zIndex: 1,
+          },
         }}
       >
-        <Typography variant="h3" fontWeight={800} gutterBottom>
+        <Typography
+          variant="h3"
+          fontWeight={800}
+          gutterBottom
+          sx={{ color: "white" }}
+        >
           Stray Kids Fan Hub
         </Typography>
-        <Typography variant="h6" sx={{ opacity: 0.8 }} gutterBottom>
+        <Typography
+          variant="h6"
+          sx={{ opacity: 0.9, color: "white" }}
+          gutterBottom
+        >
           A site for my sweets 🤍
         </Typography>
         <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
           <Button component={RouterLink} to="/videos" variant="contained">
             Watch Videos
           </Button>
-          <Button component={RouterLink} to="/news" variant="outlined">
+          <Button
+            component={RouterLink}
+            to="/news"
+            variant="outlined"
+            sx={{ color: "white", borderColor: "white" }}
+          >
             Read News
           </Button>
-          <Button component={RouterLink} to="/calendar" variant="text">
+          <Button
+            component={RouterLink}
+            to="/calendar"
+            variant="text"
+            sx={{ color: "white" }}
+          >
             Events
           </Button>
         </Stack>
@@ -87,11 +124,11 @@ export default function HomePage() {
                   Official Instagram
                 </Button>
                 <Button
-                  href="https://news.google.com/search?q=Stray%20Kids&hl=en-US&gl=US&ceid=US:en"
+                  href="https://straykids.jype.com/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Google News Search
+                  Official Website
                 </Button>
               </Stack>
             </CardContent>
