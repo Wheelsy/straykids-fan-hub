@@ -12,15 +12,15 @@ import { Link as RouterLink } from "react-router-dom";
 export default function HomePage() {
   return (
     <Stack spacing={4}>
-      {/* Hero */}
       <Box
         sx={{
           p: 4,
           borderRadius: 3,
+          height: 230,
           backgroundImage:
-            "url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fd6%2F85%2F02%2Fd68502f7f612d3b9737168ff2ea157ac.jpg&f=1&nofb=1&ipt=8584d3d6dd32baeea014805b2d1b602eb7b717530a0e7d8444abe73092923b96)",
+            "url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com/originals/d6/85/02/d68502f7f612d3b9737168ff2ea157ac.jpg&f=1&nofb=1&ipt=8584d3d6dd32baeea014805b2d1b602eb7b717530a0e7d8444abe73092923b96)",
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center 20%",
           backgroundRepeat: "no-repeat",
           position: "relative",
           "&::before": {
@@ -30,7 +30,7 @@ export default function HomePage() {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            backgroundColor: "rgba(0, 0, 0, 0.45)",
             borderRadius: 3,
           },
           "& > *": {
@@ -54,30 +54,8 @@ export default function HomePage() {
         >
           A site for my sweets 🤍
         </Typography>
-        <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
-          <Button component={RouterLink} to="/videos" variant="contained">
-            Watch Videos
-          </Button>
-          <Button
-            component={RouterLink}
-            to="/news"
-            variant="outlined"
-            sx={{ color: "white", borderColor: "white" }}
-          >
-            Read News
-          </Button>
-          <Button
-            component={RouterLink}
-            to="/calendar"
-            variant="text"
-            sx={{ color: "white" }}
-          >
-            Events
-          </Button>
-        </Stack>
       </Box>
 
-      {/* Highlights */}
       <Grid container spacing={3}>
         <Grid item xs={12} md={7}>
           <Card>
