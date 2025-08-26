@@ -1,7 +1,8 @@
 import { Box, Stack, Button} from "@mui/material";
-
-export default function YouTubeEmbed({ playlistId }) {
-
+interface YoutubeEmbedProps {
+  playlistId: string;
+}
+export default function YouTubeEmbed({ playlistId }: YoutubeEmbedProps) {
   // Extract playlist ID if full URL is provided
   const getPlaylistId = (input: string) => {
     if (!input) return "";
@@ -43,12 +44,7 @@ export default function YouTubeEmbed({ playlistId }) {
 
   const getEmbedUrl = () => {
     const baseParams = `list=${cleanPlaylistId}&rel=0&showinfo=1`;
-
-    if (embedMode === "fullscreen") {
-      return `https://www.youtube.com/embed?${baseParams}&fs=1&modestbranding=0`;
-    } else {
-      return `https://www.youtube.com/embed/videoseries?${baseParams}`;
-    }
+    return `https://www.youtube.com/embed/videoseries?${baseParams}`; 
   };
 
   const openInYouTube = () => {
@@ -73,7 +69,7 @@ export default function YouTubeEmbed({ playlistId }) {
       <Box
         sx={{
           width: "100%",
-          height: embedMode === "fullscreen" ? "600px" : "500px",
+          height: "500px",
           border: "1px solid",
           borderColor: "divider",
           borderRadius: 1,
