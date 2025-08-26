@@ -112,7 +112,7 @@ export const quizQuestions: QuizQuestion[] = [
       { text: "Singing trot music", member: "I.N" },
       { text: "Fast rap", member: "Changbin" },
       { text: "Being ambidextrous", member: "Lee Know" },
-      { text: "Taekwondo", member: "Felix" },
+      { text: "Baseball", member: "Seungmin" },
       { text: "Fast runner", member: "Bang Chan" },
       { text: "Drawing", member: "Hyunjin" },
     ],
