@@ -7,6 +7,7 @@ import VideosPage from "./pages/VideosPage";
 import NewsPage from "./pages/NewsPage";
 import SocialPage from "./pages/SocialPage";
 import CalendarPage from "./pages/CalendarPage";
+import { QuizPage } from "./pages/QuizPage";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/news" element={<NewsPage />} />
           <Route path="/social" element={<SocialPage />} />
           <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/quiz" element={<QuizPage />} />
         </Routes>
       </Container>
       <Footer />
