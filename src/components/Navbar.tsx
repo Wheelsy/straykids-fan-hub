@@ -8,6 +8,7 @@ const tabs = [
   { to: "/news", label: "News" },
   { to: "/social", label: "Social" },
   { to: "/calendar", label: "Calendar" },
+  { to: "/quiz", label: "Quiz" },
 ];
 
 export default function Navbar() {
