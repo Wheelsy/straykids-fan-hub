@@ -7,7 +7,7 @@ import {
   Button,
   Box,
 } from "@mui/material";
-import { quizQuestions } from "../data/quizData";
+import { quizQuestions, QuizType } from "../data/quizData";
 import { memberImages } from "../data/quizImgs";
 
 export interface QuizQuestion {
@@ -15,14 +15,14 @@ export interface QuizQuestion {
   options: { text: string; member: string }[];
 }
 
-export const QuizPage: React.FC = () => {
+export const WhichKidAreYouPage: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scores, setScores] = useState<Record<string, number>>({});
   const [showResult, setShowResult] = useState(false);
 
   const handleAnswer = (member: string) => {
     setScores((prev) => ({ ...prev, [member]: (prev[member] || 0) + 1 }));
-    if (currentIndex + 1 < quizQuestions.length) {
+    if (currentIndex + 1 < quizQuestions[QuizType.WhichKid].length) {
       setCurrentIndex(currentIndex + 1);
     } else {
       setShowResult(true);
@@ -77,7 +77,7 @@ export const QuizPage: React.FC = () => {
     );
   }
 
-  const question = quizQuestions[currentIndex];
+  const question = quizQuestions[QuizType.WhichKid][currentIndex] as QuizQuestion;
 
   return (
     <Stack spacing={3} mt={4} alignItems="center">
@@ -103,7 +103,7 @@ export const QuizPage: React.FC = () => {
         </CardContent>
       </Card>
       <Typography>
-        Question {currentIndex + 1} / {quizQuestions.length}
+        Question {currentIndex + 1} / {quizQuestions[QuizType.WhichKid].length}
       </Typography>
     </Stack>
   );
