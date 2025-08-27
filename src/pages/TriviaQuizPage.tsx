@@ -7,26 +7,24 @@ import {
   Button,
   TextField,
 } from "@mui/material";
-import { quizQuestions, QuizType, TriviaQuiz } from "../data/quizData";
+import { quizQuestions, QuizType, TriviaQuestion } from "../data/quizData";
 
 // Function to shuffle array and select random questions
-const getRandomQuestions = (questions: any[], count: number) => {
+const getRandomQuestions = (questions: TriviaQuestion[], count: number) => {
   const shuffled = [...questions].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
 };
 
 export const TriviaQuizPage: React.FC = () => {
-  const triviaQuizObj = quizQuestions[QuizType.Trivia][0] as TriviaQuiz;
+  const triviaQuestions = quizQuestions[QuizType.Trivia] as TriviaQuestion[];
 
   const [selectedQuestions] = useState(() =>
-    getRandomQuestions(triviaQuizObj.questions, 10)
+    getRandomQuestions(triviaQuestions, 10)
   );
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [currentAnswer, setCurrentAnswer] = useState("");
   const [showResult, setShowResult] = useState(false);
-
-  const triviaQuestions = selectedQuestions;
 
   const handleSubmitAnswer = () => {
     if (currentAnswer.trim() === "") return;
@@ -34,7 +32,7 @@ export const TriviaQuizPage: React.FC = () => {
     setAnswers((prev) => [...prev, currentAnswer.trim()]);
     setCurrentAnswer("");
 
-    if (currentIndex + 1 < triviaQuestions.length) {
+    if (currentIndex + 1 < selectedQuestions.length) {
       setCurrentIndex(currentIndex + 1);
     } else {
       setShowResult(true);
@@ -50,7 +48,7 @@ export const TriviaQuizPage: React.FC = () => {
   const calculateScore = (): number => {
     let correct = 0;
     answers.forEach((answer, idx) => {
-      if (checkAnswer(answer, triviaQuestions[idx].answer)) {
+      if (checkAnswer(answer, selectedQuestions[idx].answer)) {
         correct++;
       }
     });
@@ -59,17 +57,17 @@ export const TriviaQuizPage: React.FC = () => {
 
   if (showResult) {
     const score = calculateScore();
-    const percentage = Math.round((score / triviaQuestions.length) * 100);
+    const percentage = Math.round((score / selectedQuestions.length) * 100);
 
     return (
       <Stack spacing={3} alignItems="center" mt={4}>
         <Typography variant="h4" fontWeight={800}>
-          Trivia Quiz Results
+          Stray Kids Trivia Quiz Results
         </Typography>
         <Card sx={{ p: 3, maxWidth: 600, textAlign: "center" }}>
           <CardContent>
             <Typography variant="h5" color="primary" gutterBottom>
-              Your Score: {score}/{triviaQuestions.length} ({percentage}%)
+              Your Score: {score}/{selectedQuestions.length} ({percentage}%)
             </Typography>
             <Typography variant="body1" color="text.secondary">
               {percentage >= 80
@@ -84,7 +82,7 @@ export const TriviaQuizPage: React.FC = () => {
         </Card>
 
         <Stack spacing={2} sx={{ maxWidth: 600, width: "100%" }}>
-          {triviaQuestions.map((q, idx) => (
+          {selectedQuestions.map((q, idx) => (
             <Card key={idx} sx={{ p: 2 }}>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
@@ -121,12 +119,8 @@ export const TriviaQuizPage: React.FC = () => {
           variant="contained"
           size="large"
           onClick={() => {
-            const newQuestions = getRandomQuestions(
-              triviaQuizObj.questions,
-              10
-            );
             // Reset all state for new quiz
-            window.location.reload(); // Simple way to reset component state completely
+            window.location.reload();
           }}
         >
           Take New Quiz
@@ -135,15 +129,16 @@ export const TriviaQuizPage: React.FC = () => {
     );
   }
 
-  const currentQuestion = triviaQuestions[currentIndex];
+  const currentQuestion = selectedQuestions[currentIndex];
 
   return (
     <Stack spacing={3} mt={4} alignItems="center">
       <Typography variant="h4" fontWeight={800}>
-        {triviaQuizObj.title}
+        Stray Kids Trivia Quiz
       </Typography>
       <Typography variant="body1" color="text.secondary" textAlign="center">
-        {triviaQuizObj.description}
+        Test your knowledge about Stray Kids! (10 random questions selected each
+        time)
       </Typography>
 
       <Card sx={{ p: 3, maxWidth: 600, width: "100%" }}>
@@ -171,7 +166,7 @@ export const TriviaQuizPage: React.FC = () => {
               disabled={currentAnswer.trim() === ""}
               size="large"
             >
-              {currentIndex + 1 === triviaQuestions.length
+              {currentIndex + 1 === selectedQuestions.length
                 ? "Finish Quiz"
                 : "Next Question"}
             </Button>
@@ -180,7 +175,7 @@ export const TriviaQuizPage: React.FC = () => {
       </Card>
 
       <Typography variant="body2" color="text.secondary">
-        Question {currentIndex + 1} of {triviaQuestions.length}
+        Question {currentIndex + 1} of {selectedQuestions.length}
       </Typography>
     </Stack>
   );
