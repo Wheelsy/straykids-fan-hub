@@ -281,8 +281,9 @@ export const quizQuestions: (QuizQuestion[] | TriviaQuestion[])[] = [
       answer: "Bang Chan",
     },
     {
-      question: "What is the Korean name for Stray Kids?",
-      answer: "스트레이 키즈",
+      question:
+        "Where did the Stray Kids go on their first SKZ code after the covid pandemic?",
+      answer: "Jeju Island",
     },
     {
       question: "What does SKZ stand for?",
