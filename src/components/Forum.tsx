@@ -24,7 +24,7 @@ export default function Forum({
   };
 
   type Category = keyof typeof categories;
-  const [category, setCategory] = useState<Category>("Art");
+  const [category, setCategory] = useState<Category>("General");
 
   return (
     <div>
