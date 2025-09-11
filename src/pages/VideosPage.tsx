@@ -1,7 +1,18 @@
 import React, { useState } from "react";
-import { Stack, Typography, Card, CardContent, Grid } from "@mui/material";
+import {
+  Stack,
+  Typography,
+  Card,
+  CardContent,
+  Grid,
+  Link,
+} from "@mui/material";
 import YouTubeEmbed from "../components/YouTubeEmbed";
-import SingleYouTubeVidEmbed from "../components/SingleYouTubeVidEmbed";
+import MusicShowCard from "../components/MusicShowCard";
+import mcountdown from '../assets/mcountdown.png';
+import music_bank from '../assets/music_bank.png';
+import music_core from '../assets/music_core.png';
+import inkigayo from '../assets/inkigayo.png';
 
 export default function VideosPage() {
   const [playlistId] = useState("UU9rMiEjNaCSsebs31MRDCRA");
@@ -21,32 +32,34 @@ export default function VideosPage() {
         Music Shows
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <SingleYouTubeVidEmbed
-            url="https://www.ondemandkorea.com/en/player/vod/show-champion"
-            title="Show Champion - Wednesday 8:00 PM AEST"
-            alt_img_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.E4KrsEvPEbJq8qnhQgHvmwHaEK%3Fpid%3DApi&f=1&ipt=692fb5cbbe88d93662857798d8df82c8081a32588df7801343c9a6824a61b98e&ipo=images"
+        <Grid item xs={12} md={4}>
+          <MusicShowCard
+            title="M Countdown: Thu 19:00 AEST"
+            img={mcountdown}
+            live_link="https://www.youtube.com/live/q77fiDiL9aY"
           />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <SingleYouTubeVidEmbed
-            url="https://www.youtube.com/live/q77fiDiL9aY"
-            title="M Countdown - Thursday 7:00 PM AEST"
-            alt_img_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.tj6vWealjqafjH0Pbl1beAHaEo%3Fr%3D0%26pid%3DApi&f=1&ipt=95cd57493282e285f26f9e062afc3455ecb278f5feb635119d5d29501672699d&ipo=images"
+        <Grid item xs={12} md={4}>
+          <MusicShowCard
+            title="Music Bank: Fri 18:15 AEST"
+            img={music_bank}
+            live_link="https://www.youtube.com/@KBSWORLDTV"
+            vod_link="https://kshow123.tv/show/music-bank/"
           />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <SingleYouTubeVidEmbed
-            url="https://www.youtube.com/@kbsworldtv"
-            title="Music Bank - Friday 6:00 PM AEST"
-            alt_img_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.vLGZkRnxkh81KbHpS6X0rAAAAA%3Fpid%3DApi&f=1&ipt=c42fffa108e649afff878e88d2c64b9bcb9771f112b4701eaa8097e7ca2f6f7c&ipo=images"
+        <Grid item xs={12} md={4}>
+          <MusicShowCard
+            title="Show! Music Core: Sat 16:30 AEST"
+            img={music_core}
+            live_link="https://www.youtube.com/@MBCkpop"
           />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <SingleYouTubeVidEmbed
-            url=" https://www.youtube.com/@MBCkpop"
-            title="Music Core - Saturday 5:45 PM AEST"
-            alt_img_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.kHQXE3tZzkVEajv8xCVxVQHaE9%3Fpid%3DApi&f=1&ipt=30ad9e9be2c887dc3495a4072fcb8af75f00c50a12f74a36caf193c32f1e5278&ipo=images"
+        <Grid item xs={12} md={4}>
+          <MusicShowCard
+            title="Inkigayo: Sun 16:30 AEST"
+            img={inkigayo}
+            live_link="https://www.twitch.tv/noctaq"
+            vod_link="https://kshow123.tv/show/sbs-inkigayo/"
           />
         </Grid>
       </Grid>
