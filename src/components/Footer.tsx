@@ -5,7 +5,8 @@ export default function Footer() {
   return (
     <Box component="footer" sx={{ py: 4, textAlign: "center", opacity: 0.7 }}>
       <Typography variant="body2">
-        Fan-made site. All embeds © their respective owners.
+        This site does not own or produce any of the embedded content. Full
+        credit to the original creators.
       </Typography>
     </Box>
   );
