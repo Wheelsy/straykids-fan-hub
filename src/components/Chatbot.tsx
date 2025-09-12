@@ -73,13 +73,6 @@ export default function Chatbot() {
   const [typing, setTyping] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const [contextData, setContextData] = useState("");
-
-  useEffect(() => {
-    setContextData(strayKidsKnowledge);
-    console.log("Context loaded, length:", strayKidsKnowledge.length);
-  }, []);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
@@ -96,10 +89,9 @@ export default function Chatbot() {
     // Add user message to state
     setMessages((prev) => [...prev, userMessage]);
     setTyping(true);
+    setTimeout(() => setTyping(false), 3000); // Simulate typing for 3 seconds
 
-    console.log(`context length: ${contextData.length}`);
-
-    // Create chat history INCLUDING the current message
+    // Create chat history
     const allMessages = [...messages, userMessage];
     const chatHistory = allMessages
       .map(
@@ -129,10 +121,10 @@ export default function Chatbot() {
 
               Guidelines:
               - The Background information should be first reference for answering questions. 
-              - Do NOT invent facts about Stray Kids or their activities.
+              - Do not make up any information about Stray Kids music that is not in the Background.
               - Keep replies short, friendly, and conversational (1–3 sentences).
               - Use the chat history for context and stay consistent with it.
-              - If you don't know something, deflect politely or fall back on your bio instead of making it up.
+              - If you don't know something, deflect politely or just say make general conversation.
               - Remember you are chatting to a Stay (fan of Stray Kids).
               
               Chat history: ${chatHistory}
@@ -221,37 +213,33 @@ export default function Chatbot() {
         elevation={3}
         sx={{ padding: 2, height: 400, overflowY: "scroll" }}
       >
-        {messages.map((msg, index) => {
-          const isLastMessage = index === messages.length - 1;
-          return (
-            <Box
-              key={index}
-              sx={{
-                textAlign: msg.sender === "user" ? "right" : "left",
-                marginBottom: 1,
-              }}
+        {messages.map((msg, index) => (
+          <Box
+            key={index}
+            sx={{
+              textAlign: msg.sender === "user" ? "right" : "left",
+              marginBottom: 1,
+            }}
+          >
+            <Typography
+              variant="body1"
+              color={msg.sender === "user" ? "primary.main" : "text.secondary"}
             >
-              <Typography
-                variant="body1"
-                color={
-                  msg.sender === "user" ? "primary.main" : "text.secondary"
-                }
-              >
-                <strong>
-                  {msg.sender === "user" ? "You" : selectedMember}:
-                </strong>{" "}
-                {msg.sender === "user" ? (
-                  msg.text
-                ) : isLastMessage && typing ? (
-                  <TypingDots />
-                ) : (
-                  msg.text
-                )}
-              </Typography>
-            </Box>
-          );
-        })}
+              <strong>{msg.sender === "user" ? "You" : selectedMember}:</strong>{" "}
+              {msg.text}
+            </Typography>
+          </Box>
+        ))}
+
+        {typing && (
+          <Box sx={{ textAlign: "left", marginBottom: 1 }}>
+            <Typography variant="body1" color="text.secondary">
+              <strong>{selectedMember}:</strong> <TypingDots />
+            </Typography>
+          </Box>
+        )}
       </Paper>
+
       <form onSubmit={handleSubmit} style={{ display: "flex", marginTop: 16 }}>
         <TextField
           variant="outlined"
