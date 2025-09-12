@@ -11,6 +11,7 @@ const tabs = [
   { to: "/quizzes", label: "Quizzes" },
   { to: "/forum", label: "Forum" },
   { to: "/contact", label: "Contact" },
+  { to: "/chat", label: "Chat" },
 ];
 
 export default function Navbar() {
