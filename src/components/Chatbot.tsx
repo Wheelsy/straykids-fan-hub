@@ -20,7 +20,7 @@ import SeungminImage from "../assets/Seungmin.png";
 import INImage from "../assets/I.N.png";
 import { SelectChangeEvent } from "@mui/material";
 import TypingDots from "./TypingDots";
-import { strayKidsKnowledge } from "../data/Stray_Kids_Knowledge.js";
+import { strayKidsKnowledge } from "../data/Stray_Kids_Knowledge";
 interface Message {
   sender: string;
   text: string;
