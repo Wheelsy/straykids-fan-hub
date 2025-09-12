@@ -12,6 +12,7 @@ import { WhichKidAreYouPage } from "./pages/WhichKidAreYouQuiz";
 import { TriviaQuizPage } from "./pages/TriviaQuizPage";
 import ForumPage from "./pages/ForumPage";
 import ContactPage from "./pages/ContactPage";
+import ChatPage from "./pages/ChatPage";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/quiz/kids-trivia" element={<TriviaQuizPage />} />
           <Route path="/forum" element={<ForumPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/chat" element={<ChatPage />} />
         </Routes>
       </Container>
       <Footer />
