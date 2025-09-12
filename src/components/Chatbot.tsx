@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { InferenceClient } from "@huggingface/inference";
 import {
   TextField,
   Button,
@@ -21,13 +20,11 @@ import SeungminImage from "../assets/Seungmin.png";
 import INImage from "../assets/I.N.png";
 import { SelectChangeEvent } from "@mui/material";
 import TypingDots from "./TypingDots";
-
+import { strayKidsKnowledge } from "../data/Stray_Kids_Knowledge.js";
 interface Message {
   sender: string;
   text: string;
 }
-
-const client = new InferenceClient(import.meta.env.VITE_HF_API_KEY);
 
 const members = [
   "Bang Chan",
@@ -78,18 +75,10 @@ export default function Chatbot() {
 
   const [contextData, setContextData] = useState("");
 
-useEffect(() => {
-  fetch("../data/Stray_Kids_Knowledge.txt")
-    .then((response) => {
-      console.log("Fetch response:", response.ok);
-      return response.text();
-    })
-    .then((data) => {
-      console.log("Context loaded, length:", data.length);
-      setContextData(data);
-    })
-    .catch((error) => console.error("Failed to load context:", error));
-}, []);
+  useEffect(() => {
+    setContextData(strayKidsKnowledge);
+    console.log("Context loaded, length:", strayKidsKnowledge.length);
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -100,17 +89,15 @@ useEffect(() => {
     setSelectedMember(e.target.value as string);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const userMessage: Message = { sender: "user", text: input };
+    const userMessage = { sender: "user", text: input };
 
     // Add user message to state
     setMessages((prev) => [...prev, userMessage]);
     setTyping(true);
+
     console.log(`context length: ${contextData.length}`);
-    setTimeout(() => {
-      setTyping(false);
-    }, 5000);
 
     // Create chat history INCLUDING the current message
     const allMessages = [...messages, userMessage];
@@ -122,46 +109,65 @@ useEffect(() => {
       .join("\n");
 
     try {
-      const chatCompletion = await client.chatCompletion({
-        provider: "groq",
-        model: "openai/gpt-oss-20b", // Note: This model name looks incorrect for Groq
-        messages: [
-          {
-            role: "user",
-            content: `You are ${selectedMember}, a real member of Stray Kids. 
-          Stay in character at all times and speak naturally as ${selectedMember} would in a relaxed casual conversation with fans. 
-          
-          You have the following background information about Stray Kids and yourself to help you answer questions accurately: 
-          Background: ${contextData}
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          messages: [
+            {
+              role: "user",
+              content: `You are ${selectedMember}, a real member of Stray Kids. 
+              Stay in character at all times and speak naturally as ${selectedMember} would in a relaxed casual conversation with fans. 
+              
+              You have the following background information about Stray Kids to help you answer questions accurately: 
+              Background: ${strayKidsKnowledge}
 
-          Utilise your bio when appropriate, but don't recite it verbatim: 
-          Bio: ${memberDescriptions[selectedMember]}
+              You have the following biographical information to help you stay in character: 
+              Bio: ${memberDescriptions[selectedMember]}
 
-          Guidelines:
-          - The Bakcground information should be first reference for answering questions. 
-          - Do NOT invent facts about Stray Kids or their activities.
-          - Keep replies short, friendly, and conversational (1–3 sentences).
-          - Use the chat history for context and stay consistent with it.
-          - If you don't know something, deflect politely or fall back on your bio instead of making it up.
-          - Remember you are chatting to a Stay (fan of Stray Kids).
-          
-          Chat history: ${chatHistory}
+              Guidelines:
+              - The Background information should be first reference for answering questions. 
+              - Do NOT invent facts about Stray Kids or their activities.
+              - Keep replies short, friendly, and conversational (1–3 sentences).
+              - Use the chat history for context and stay consistent with it.
+              - If you don't know something, deflect politely or fall back on your bio instead of making it up.
+              - Remember you are chatting to a Stay (fan of Stray Kids).
+              
+              Chat history: ${chatHistory}
 
-          Current question: ${input}`,
-          },
-        ],
+              Current question: ${input}`,
+            },
+          ],
+        }),
       });
 
-      const botMessage: Message = {
+      if (!response.ok) {
+        throw new Error(`API request failed: ${response.status}`);
+      }
+
+      const chatCompletion = await response.json();
+
+      const botMessage = {
         sender: selectedMember,
         text:
-          chatCompletion.choices[0].message.content ||
-          "Inference error. Try again later.",
+          chatCompletion.choices?.[0]?.message?.content ||
+          "Sorry, I couldn't generate a response. Try again!",
       };
+
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
-      setErrorMessage(error as string);
-      console.error("Error fetching data from Hugging Face:", error);
+      console.error("Error fetching data from API:", error);
+
+      const errorMessage = {
+        sender: selectedMember,
+        text: "Sorry, I'm having trouble responding right now. Please try again in a moment!",
+      };
+
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
+      setTyping(false);
     }
 
     setInput("");
