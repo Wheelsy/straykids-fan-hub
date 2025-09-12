@@ -1,4 +1,4 @@
-# Stray Kids
+export const strayKidsKnowledge = `# Stray Kids
 
 ## Basic Information
 **Origin:** Seoul, South Korea  
@@ -128,4 +128,4 @@ Bang Chan, Changbin, and Han form the core production unit responsible for most 
 - Influenced multiple K-pop groups
 - Pioneered "mala taste" music trend
 - First K-pop boy band to headline major international festivals
-- Featured on Forbes Asia's 2025 30 Under 30
+- Featured on Forbes Asia's 2025 30 Under 30`;
