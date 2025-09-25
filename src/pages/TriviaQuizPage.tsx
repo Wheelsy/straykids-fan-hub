@@ -8,14 +8,51 @@ import {
   TextField,
 } from "@mui/material";
 import { quizQuestions, QuizType, TriviaQuestion } from "../data/quizData";
+import { useNavigate } from "react-router-dom";
 
-// Function to shuffle array and select random questions
+// Normalize strings for comparison
+const normalize = (str: string): string => {
+  return str
+    .toLowerCase()
+    .replace(/&/g, "and") // normalize "&" to "and"
+    .replace(/[^a-z0-9\s]/g, "") // remove punctuation
+    .replace(/\s+/g, " ") // collapse multiple spaces
+    .trim();
+};
+
+const checkAnswer = (
+  userAnswer: string,
+  correctAnswer: string | string[]
+): boolean => {
+  const normalizedUser = normalize(userAnswer);
+
+  const answersArray = Array.isArray(correctAnswer)
+    ? correctAnswer
+    : [correctAnswer];
+
+  return answersArray.some((ans) => {
+    const normalizedCorrect = normalize(ans);
+
+    if (
+      normalizedUser === normalizedCorrect ||
+      normalizedUser.includes(normalizedCorrect) ||
+      normalizedCorrect.includes(normalizedUser)
+    ) {
+      return true;
+    }
+
+    return false;
+  });
+};
+
+// Shuffle and select random questions
 const getRandomQuestions = (questions: TriviaQuestion[], count: number) => {
   const shuffled = [...questions].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
 };
 
 export const TriviaQuizPage: React.FC = () => {
+  const navigate = useNavigate();
   const triviaQuestions = quizQuestions[QuizType.Trivia] as TriviaQuestion[];
 
   const [selectedQuestions] = useState(() =>
@@ -37,12 +74,6 @@ export const TriviaQuizPage: React.FC = () => {
     } else {
       setShowResult(true);
     }
-  };
-
-  const checkAnswer = (userAnswer: string, correctAnswer: string): boolean => {
-    return (
-      userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()
-    );
   };
 
   const calculateScore = (): number => {
@@ -82,45 +113,43 @@ export const TriviaQuizPage: React.FC = () => {
         </Card>
 
         <Stack spacing={2} sx={{ maxWidth: 600, width: "100%" }}>
-          {selectedQuestions.map((q, idx) => (
-            <Card key={idx} sx={{ p: 2 }}>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>
-                  {q.question}
-                </Typography>
-                <Typography
-                  color={
-                    checkAnswer(answers[idx], q.answer)
-                      ? "success.main"
-                      : "error.main"
-                  }
-                  fontWeight="bold"
-                >
-                  Your answer: {answers[idx]}
-                </Typography>
-                <Typography color="text.secondary">
-                  Correct answer: {q.answer}
-                </Typography>
-                {checkAnswer(answers[idx], q.answer) ? (
-                  <Typography color="success.main" sx={{ mt: 1 }}>
-                    ✅ Correct!
+          {selectedQuestions.map((q, idx) => {
+            const isCorrect = checkAnswer(answers[idx], q.answer);
+            return (
+              <Card key={idx} sx={{ p: 2 }}>
+                <CardContent>
+                  <Typography variant="h6" gutterBottom>
+                    {q.question}
                   </Typography>
-                ) : (
-                  <Typography color="error.main" sx={{ mt: 1 }}>
-                    ❌ Incorrect
+                  <Typography
+                    color={isCorrect ? "success.main" : "error.main"}
+                    fontWeight="bold"
+                  >
+                    Your answer: {answers[idx]}
                   </Typography>
-                )}
-              </CardContent>
-            </Card>
-          ))}
+                  <Typography color="text.secondary">
+                    Correct answer: {q.answer[0]}
+                  </Typography>
+                  {isCorrect ? (
+                    <Typography color="success.main" sx={{ mt: 1 }}>
+                      ✅ Correct!
+                    </Typography>
+                  ) : (
+                    <Typography color="error.main" sx={{ mt: 1 }}>
+                      ❌ Incorrect
+                    </Typography>
+                  )}
+                </CardContent>
+              </Card>
+            );
+          })}
         </Stack>
 
         <Button
           variant="contained"
           size="large"
           onClick={() => {
-            // Reset all state for new quiz
-            window.location.reload();
+            navigate(`/quizzes`);
           }}
         >
           Take New Quiz

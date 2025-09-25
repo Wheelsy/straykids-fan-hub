@@ -6,12 +6,12 @@ export interface QuizOption {
 export interface QuizQuestion {
   question: string;
   options: QuizOption[];
-  answer?: string | null;
+  answer?: string | string[];
 }
 
 export interface TriviaQuestion {
   question: string;
-  answer: string;
+  answer: string[];
 }
 
 export enum QuizType {
@@ -136,234 +136,302 @@ export const quizQuestions: (QuizQuestion[] | TriviaQuestion[])[] = [
       ],
     },
   ],
-
   // Stray Kids Trivia Quiz
   [
     {
       question: "Who is the leader of Stray Kids?",
-      answer: "Bang Chan",
+      answer: [
+        "bang chan",
+        "chan",
+        "bangchan",
+        "christopher",
+        "bang christopher chan",
+        "chris",
+      ],
     },
     {
       question: "In which year did Stray Kids officially debut?",
-      answer: "2018",
+      answer: ["2018", "twenty eighteen"],
     },
     {
       question: "What is the name of Stray Kids' fanbase?",
-      answer: "Stay",
+      answer: ["stay", "stays"],
     },
     {
       question:
         "Which Stray Kids member is known for his love of cats and has three cats named Sooni, Doongi, and Dori?",
-      answer: "Lee Know",
+      answer: ["lee know", "leeknow", "minho", "lee minho"],
     },
     {
       question:
         "Which Stray Kids member is known for his freckled cheeks and is often referred to as the 'Australian sunshine'?",
-      answer: "Felix",
+      answer: ["felix", "yongbok", "lee yongbok"],
     },
     {
       question: "Which Stray Kids member is known for his voice impressions?",
-      answer: "Han",
+      answer: ["han", "jisung", "han jisung"],
     },
     {
       question:
         "What is the name of the main producing unit within Stray Kids?",
-      answer: "3RACHA",
+      answer: ["3racha", "three racha", "3 racha"],
     },
     {
       question: "Which album became Stray Kids' first million-selling album?",
-      answer: "Noeasy",
+      answer: ["noeasy"],
     },
     {
       question:
         "What was the title track of Stray Kids' first studio album 'Go Live'?",
-      answer: "God's Menu",
+      answer: ["god's menu", "gods menu"],
     },
     {
       question: "What is the name of the dance unit in Stray Kids?",
-      answer: "DanceRacha",
+      answer: ["danceracha", "dance racha"],
     },
     {
       question: "What is the name of the vocal unit in Stray Kids?",
-      answer: "VocalRacha",
+      answer: ["vocalracha", "vocal racha"],
     },
     {
       question: "Which three members make up 3RACHA?",
-      answer: "Bang Chan, Changbin, and Han",
+      answer: [
+        "bang chan, changbin, and han",
+        "bang chan changbin han",
+        "chan changbin han",
+        "bangchan changbin han",
+        "bang chan and changbin and han",
+        "chan changbin and han",
+        "bangchan changbin and han",
+        "bang chan changbin and han",
+        "bangchan changbin and han",
+        "han changbin and bang chan",
+        "han changbin bang chan",
+        "han and changbin and bang chan",
+        "han and changbin bang chan",
+        "han changbin and bangchan",
+        "han changbin bangchan",
+        "changbin and bang chan and han",
+        "changbin bang chan han",
+        "changbin and bang chan han",
+        "changbin bang chan and han",
+      ],
     },
     {
       question: "What was Stray Kids' debut EP called?",
-      answer: "I Am Not",
+      answer: ["i am not"],
     },
     {
       question: "On what date did Stray Kids officially debut?",
-      answer: "March 25, 2018",
+      answer: [
+        "march 25, 2018",
+        "25 march 2018",
+        "march 25 2018",
+        "25 march 2018",
+        "3/25/2018",
+        "25/3/2018",
+      ],
     },
     {
       question: "What was the name of the reality show that formed Stray Kids?",
-      answer: "Stray Kids",
+      answer: ["stray kids"],
     },
     {
       question: "Which entertainment company does Stray Kids belong to?",
-      answer: "JYP Entertainment",
+      answer: ["jyp entertainment", "jyp"],
     },
     {
       question:
         "What is the name of Stray Kids' unofficial debut EP released in January 2018?",
-      answer: "Mixtape",
+      answer: ["mixtape"],
     },
     {
       question: "Which member left Stray Kids in 2019?",
-      answer: "Woojin",
+      answer: ["woojin", "kim woojin"],
     },
     {
-      question: "What are the three EP series that followed Stray Kids' debut?",
-      answer: "I Am series",
+      question: "What is the three EP series that followed Stray Kids' debut?",
+      answer: [
+        "i am series",
+        "i am not, i am who, i am you",
+        "i am trilogy",
+        "i am",
+      ],
     },
     {
       question: "What trilogy came after the I Am series?",
-      answer: "Clé trilogy",
+      answer: [
+        "clé trilogy",
+        "cle trilogy",
+        "clé series",
+        "cle series",
+        "clé",
+        "cle",
+        "cle1:miroh, cle2:yellow wood, cle:levanter",
+        "clé 1:miroh, clé 2:yellow wood, clé:levanter",
+        "cle 1:miroh, cle 2:yellow wood, cle:levanter",
+      ],
     },
     {
       question: "What is Bang Chan's position in the group besides leader?",
-      answer: "Producer",
+      answer: ["producer", "main producer"],
     },
     {
       question: "Which member is known as the main dancer of Stray Kids?",
-      answer: "Lee Know",
+      answer: ["lee know", "minho", "lee minho"],
     },
     {
       question: "What is Changbin's main role in the group?",
-      answer: "Main rapper",
+      answer: ["main rapper", "rapper"],
     },
     {
       question: "Which member is known for his visual and modeling potential?",
-      answer: "Hyunjin",
-    },
-    {
-      question: "What instrument does Seungmin primarily play?",
-      answer: "Guitar",
+      answer: ["hyunjin", "hwang hyunjin"],
     },
     {
       question: "What is I.N's position in the group?",
-      answer: "Maknae",
+      answer: ["maknae", "youngest"],
     },
     {
       question: "Which two members are from Australia?",
-      answer: "Bang Chan and Felix",
+      answer: [
+        "bang chan and felix",
+        "chan and felix",
+        "felix and bang chan",
+        "chan felix",
+        "bangchan and felix",
+        "bangchan felix",
+        "felix and bangchan",
+        "felix bangchan",
+      ],
     },
     {
-      question: "What does 'Stay' stand for as the fandom name?",
-      answer: "Stray Kids Everywhere All Around The World",
+      question: "What is the stray kids motto?",
+      answer: [
+        "stray kids everywhere all around the world",
+        "stray kids everywhere, all around the world",
+        "stray kids everywhere all around world!",
+        "stray kids everywhere, all around world!",
+      ],
     },
     {
       question:
         "Which song contains the lyric 'Cookin' like a chef I'm a 5-star Michelin'?",
-      answer: "God's Menu",
+      answer: ["god's menu", "gods menu"],
     },
     {
       question:
         "What was the first Stray Kids song to be certified gold by the RIAA?",
-      answer: "God's Menu",
+      answer: ["god's menu", "gods menu"],
     },
     {
       question:
         "Which album marked Stray Kids' first number one debut on the Gaon Album Chart?",
-      answer: "Go Live",
+      answer: ["go live"],
     },
     {
       question:
         "What award did Stray Kids receive at the 35th Golden Disc Awards?",
-      answer: "Best Performance Award",
+      answer: ["best performance award", "best performance"],
     },
     {
       question: "Which member has the most KOMCA songwriting credits?",
-      answer: "Bang Chan",
+      answer: [
+        "bang chan",
+        "chan",
+        "bangchan",
+        "christopher",
+        "chris",
+        "bang christopher chan",
+      ],
     },
     {
       question:
         "Where did the Stray Kids go on their first SKZ code after the covid pandemic?",
-      answer: "Jeju Island",
+      answer: ["jeju island", "jeju"],
     },
     {
       question: "What does SKZ stand for?",
-      answer: "Stray Kids",
+      answer: ["stray kids"],
     },
     {
       question: "Which member is known for being ambidextrous?",
-      answer: "Lee Know",
+      answer: ["lee know", "lee minho", "minho"],
     },
     {
       question: "What animal does Changbin often get compared to?",
-      answer: "Pig",
+      answer: ["pig"],
     },
     {
       question: "Which member is known for his trot singing skills?",
-      answer: "I.N",
+      answer: ["i.n", "in", "yang jeongin"],
     },
     {
       question: "What is Felix's Korean name?",
-      answer: "Lee Yongbok",
+      answer: ["lee yongbok", "yongbok"],
     },
     {
       question: "Which member was born in Malaysia?",
-      answer: "Felix",
+      answer: ["han", "jisung", "han jisung", "jisung han"],
     },
     {
       question: "What is Han's real name?",
-      answer: "Han Jisung",
+      answer: ["han jisung"],
     },
     {
       question: "Which member is known for his baseball skills?",
-      answer: "Seungmin",
+      answer: ["seungmin", "kim seungmin"],
     },
     {
       question: "What is I.N's real name?",
-      answer: "Yang Jeongin",
+      answer: ["yang jeongin", "jeongin"],
     },
     {
       question: "Who is the oldest member of Stray Kids?",
-      answer: "Bang Chan",
+      answer: [
+        "bang chan",
+        "chan",
+        "bangchan",
+        "christopher",
+        "chris",
+        "bang christopher chan",
+      ],
     },
     {
       question: "Who is the youngest member of Stray Kids?",
-      answer: "I.N",
+      answer: ["i.n", "yang jeongin", "jeongin"],
     },
     {
       question: "Which member is known for his drawing and painting skills?",
-      answer: "Hyunjin",
+      answer: ["hyunjin", "hwang hyunjin"],
     },
     {
       question: "What is Lee Know's real name?",
-      answer: "Lee Minho",
+      answer: ["lee minho", "minho"],
     },
     {
       question: "Which member has experience as a backup dancer before debut?",
-      answer: "Lee Know",
+      answer: ["lee know", "minho", "lee minho"],
     },
     {
       question: "What is Changbin's real name?",
-      answer: "Seo Changbin",
+      answer: ["seo changbin", "changbin"],
     },
     {
       question: "Which member is known for his deep voice?",
-      answer: "Felix",
+      answer: ["felix", "yongbok", "lee yongbok"],
     },
     {
-      question: "What is Bang Chan's Korean name?",
-      answer: "Bang Christopher Chan",
+      question: "What is Bang Chan's English first name?",
+      answer: ["christopher", "chris"],
     },
     {
       question: "Which member lived in Australia for the longest time?",
-      answer: "Bang Chan",
+      answer: ["felix", "yongbok", "lee yongbok"],
     },
     {
       question: "What is Hyunjin's real name?",
-      answer: "Hwang Hyunjin",
-    },
-    {
-      question: "What is Seungmin's real name?",
-      answer: "Kim Seungmin",
+      answer: ["hwang hyunjin", "hyunjin"],
     },
   ],
 ];

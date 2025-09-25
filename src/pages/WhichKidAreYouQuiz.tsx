@@ -8,7 +8,8 @@ import {
   Box,
 } from "@mui/material";
 import { quizQuestions, QuizType } from "../data/quizData";
-import { memberImages } from "../data/quizImgs";
+import { memberImages } from "../data/memberImgs";
+import { useNavigate } from "react-router-dom";
 
 export interface QuizQuestion {
   question: string;
@@ -19,6 +20,8 @@ export const WhichKidAreYouPage: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scores, setScores] = useState<Record<string, number>>({});
   const [showResult, setShowResult] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleAnswer = (member: string) => {
     setScores((prev) => ({ ...prev, [member]: (prev[member] || 0) + 1 }));
@@ -62,14 +65,12 @@ export const WhichKidAreYouPage: React.FC = () => {
             </Typography>
             <Button
               variant="contained"
-              sx={{ mt: 2 }}
+              size="large"
               onClick={() => {
-                setCurrentIndex(0);
-                setScores({});
-                setShowResult(false);
+                navigate(`/quizzes`);
               }}
             >
-              Retake Quiz
+              Take New Quiz
             </Button>
           </CardContent>
         </Card>
@@ -77,7 +78,9 @@ export const WhichKidAreYouPage: React.FC = () => {
     );
   }
 
-  const question = quizQuestions[QuizType.WhichKid][currentIndex] as QuizQuestion;
+  const question = quizQuestions[QuizType.WhichKid][
+    currentIndex
+  ] as QuizQuestion;
 
   return (
     <Stack spacing={3} mt={4} alignItems="center">
