@@ -1,131 +1,115 @@
 export const strayKidsKnowledge = `# Stray Kids
 
-## Basic Information
-**Origin:** Seoul, South Korea  
-**Genres:** K-pop, hip hop, electronica  
-**Years Active:** 2017–present  
-**Labels:** JYP, Epic Japan, Republic  
-**Members:** Bang Chan, Lee Know, Changbin, Hyunjin, Han, Felix, Seungmin, I.N  
-**Former Members:** Woojin (left 2019)
+### Overview
+Stray Kids is a South Korean boy group formed by JYP Entertainment in 2017. Known for their self-produced music, they are recognized for their unique blend of hip-hop, EDM, rock, and experimental sounds. The group comprises Bang Chan, Lee Know, Changbin, Hyunjin, Han, Felix, Seungmin, and I.N.
 
-## Overview
-Stray Kids (SKZ) is a South Korean boy band formed by JYP Entertainment. The group is known for self-producing their music through their main production team 3Racha (Bang Chan, Changbin, and Han). Leader Bang Chan personally selected each member, which is unusual in K-pop where agencies typically make these decisions.
+### Studio Albums (Full Tracklists)
 
-## Career Highlights
+#### Go Live (2020)
+1. I Am You
+2. God’s Menu
+3. District 9
+4. Mirror
+5. Awkward Silence
+6. M.I.A.
+7. Grow Up
+8. My Pace
+9. Voices
+10. Question
 
-### Formation and Debut (2017-2018)
-- Formed through reality show "Stray Kids" (2017)
-- Released unofficial debut EP "Mixtape" (January 2018)
-- Official debut with EP "I Am Not" (March 2018)
-- Completed "I Am" series with "I Am Who" and "I Am You"
+#### Noeasy (2021)
+1. Venom
+2. Thunderous
+3. Red Lights
+4. Domino
+5. Silent Cry
+6. Secret Secret
+7. Cheese
+8. Surf
+9. Secret Secret (Inst.)
 
-### Early Success (2019-2020)
-- Released Clé trilogy: "Clé 1: Miroh," "Clé 2: Yellow Wood," "Clé: Levanter"
-- Woojin departed in October 2019
-- Japanese debut with "SKZ2020" compilation
-- First studio album "Go Live" (2020) - first platinum certification
-- Single "Top" debuted #1 on Japanese Oricon Singles Chart
+#### 5-Star (2023)
+1. Hall of Fame
+2. S-Class
+3. ITEM
+4. Super Bowl
+5. TOPLINE (feat. Tiger JK)
+6. DLC
+7. GET LIT
+8. Collision
+9. FNF
+10. Youtiful
+11. THE SOUND (Korean Ver.)
+12. Mixtape: Time Out
 
-### International Breakthrough (2021-2022)
-- Won "Kingdom: Legendary War" competition
-- Second studio album "Noeasy" became first million-selling album
-- Signed with Republic Records for US promotions
-- "Oddinary" and "Maxident" both hit #1 on Billboard 200
-- Became third Korean act to top Billboard 200
+#### Karma (2025)
+1. Bleep
+2. Ceremony
+3. Creed
+4. Mess
+5. In My Head
+6. Half Time
+7. Pheonix
+8. Ghost
+9. 0801
 
-### Global Dominance (2023-2025)
-- "5-Star" (2023) sold over 5 million copies
-- First act to debut at #1 on Billboard 200 with first seven charted albums
-- Headlined major festivals: Lollapalooza, BST Hyde Park, I-Days
-- Released "Rock-Star" (2023), "Ate" (2024), "Hop" (2024), "Karma" (2025)
-- As of December 2024: sold over 31 million albums
+### EPs, Mixtapes & Japanese Releases (Title Tracks Only)
 
-## Musical Style and Artistry
+#### I Am Not (2018)
+- I Am You
 
-### Sound Evolution
-- **Early Style:** Hip-hop, rock, EDM fusion described as "dark and experimental"
-- **"Mala Taste" Genre:** Pioneered hot, spicy, intense sound starting with "God's Menu"
-- **Recent Work:** Embraced "noisy" criticism as creative weapon
-- **Genre Fusion:** Combines hip-hop, dubstep, heavy metal, electroclash, dance-pop
+#### Clé 1: Miroh (2019)
+- Miroh
 
-### Self-Production
-- 3Racha (Bang Chan, Changbin, Han) writes/produces most releases
-- All members participate in songwriting and creative process
-- Individual projects: SKZ-Record, SKZ-Player, Two Kids Song, SKZ Song Camp
+#### Clé 2: Yellow Wood (2019)
+- Side Effects
 
-### Lyrical Themes
-- **Early Career:** Identity search, self-discovery, overcoming challenges
-- **Current Era:** Self-confidence, embracing uniqueness, celebrating success
-- **Notable Wordplay:** Extensive use of Korean-English linguistic creativity
-- **Cooking Metaphors:** Featured prominently in "God's Menu" era
+#### Clé: Levanter (2019)
+- Levanter
 
-## Achievements and Records
+#### Oddinary (2022)
+- Maniac
 
-### Chart Performance
-- First act to debut #1 on Billboard 200 with first seven entries
-- Multiple #1 albums in South Korea, US, and other international markets
-- First K-pop group to exceed 5 million album pre-orders (5-Star)
+#### Maxident (2022)
+- Case 143
 
-### Awards
-- 6 Daesang (grand prize) awards
-- Multiple wins at Asia Artist Awards, Golden Disc Awards, MAMA Awards
-- Prime Minister's Commendation at Korean Popular Culture and Arts Awards (2023)
+#### Rock-Star (2023)
+- Rock-Star
 
-### Industry Recognition
-- Time's 2023 Next Generation Leaders
-- Rolling Stone UK called them "biggest band in the world"
-- IFPI rankings: 7th globally (2022), 3rd globally (2023), 5th globally (2024)
+#### Ate (2024)
+- Mountains
 
-## Members Profile
+#### Hop (2024)
+- Hop
 
-### Current Members
-- **Bang Chan** - Leader, vocalist, rapper, dancer (Australian-Korean)
-- **Lee Know** - Dancer, vocalist
-- **Changbin** - Rapper (3Racha member)
-- **Hyunjin** - Dancer, rapper
-- **Han** - Rapper, vocalist (3Racha member)
-- **Felix** - Dancer, rapper (Australian-Korean)
-- **Seungmin** - Vocalist
-- **I.N** - Vocalist (youngest member)
+#### SKZ2020 (2020)
+- Back Door
 
-### 3Racha Production Team
-Bang Chan, Changbin, and Han form the core production unit responsible for most of Stray Kids' music creation.
+#### SKZ2021 (2021)
+- Thunderous
 
-## Discography Highlights
+#### SKZ2022 (2022)
+- Circus
 
-### Korean Studio Albums
-- Go Live (2020)
-- Noeasy (2021)
-- 5-Star (2023)
-- Karma (2025)
+#### SKZ2023 (2023)
+- Social Path
 
-### Notable EPs
-- I Am Not (2018) - debut
-- Clé 1: Miroh (2019)
-- Oddinary (2022)
-- Maxident (2022)
-- Rock-Star (2023)
-- Ate (2024)
+#### SKZ2024 (2024)
+- Walking on Water
 
-### Mixtapes/Compilations
-- Mixtape (2018)
-- SKZ2020 (2020)
-- Hop (2024)
+#### SKZ2025 (2025)
+- Karma
 
-## Other Ventures
+### SKZ-Player & SKZ-Record Songs (Notable Tracks)
+- **SKZ-Player**: Volcano, Streetlight, Two Kids Song, Yeah!, Mean Boss, King of Nagging, Ice Cream, Chance
+- **SKZ-Record**: Close, Alien, HaPpY, Wish You Back, I Got It, Ghost (Seungmin's Cover), Zombie (Han & Seungmin's Cover), Congratulations (Han & Seungmin's Cover)
 
-### Fashion and Endorsements
-- Tommy Hilfiger Asian ambassadors
-- Individual brand ambassadorships (Versace, Louis Vuitton, Cartier, etc.)
-- First K-pop group to attend Met Gala together (2024)
+### Collaborations & OSTs
+- **Collaborations**: Social Path (feat. LiSA), TOPLINE (feat. Tiger JK)
+- **OSTs**: Youtiful (from "Twenty-Five Twenty-One"), Your Eyes (from "Extraordinary You")
 
-### Philanthropy
-- Known as "Donation Idol" for charitable activities
-- JYP Entertainment's "Every Dream Matters" campaign participation
-- Recent donation: 800 million won for wildfire relief (2025)
-
-## Cultural Impact
-- Influenced multiple K-pop groups
-- Pioneered "mala taste" music trend
-- First K-pop boy band to headline major international festivals
-- Featured on Forbes Asia's 2025 30 Under 30`;
+### Achievements & Recognition
+- **Billboard Milestones**: First act to debut at No. 1 on the Billboard 200 with their first seven albums. "Karma" debuted at No. 1 on the Billboard 200 in September 2025, marking their seventh consecutive No. 1 debut.
+- **Awards**: 6 Daesang awards, multiple wins at Asia Artist Awards, Golden Disc Awards, MAMA Awards, Prime Minister's Commendation (2023)
+- **Industry Recognition**: Named in Time's 2023 Next Generation Leaders, recognized by Rolling Stone UK as "biggest band in the world," IFPI rankings: 7th (2022), 3rd (2023), 5th (2024)
+`;
